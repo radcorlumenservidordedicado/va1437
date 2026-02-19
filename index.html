@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radiante Corazon Luminico Servidor dedicado Local</title>
+  <style>
+    body { background: #f5f5f5; font-family: Arial; margin:0; }
+    nav { background: #424242; padding: 10px; text-align: center; }
+    nav a { color: #f5f5f5; text-decoration: none; margin: 0 10px; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+
+    h1 { text-align: center; color: #212121; margin-top: 20px; }
+    p { text-align: center; color: #333; }
+
+    .box {
+      background: #ffffff;
+      border: 1px solid #bdbdbd;
+      padding: 15px;
+      margin: 20px auto;
+      max-width: 600px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    textarea {
+      width: 90%;
+      height: 200px;
+      margin-top: 10px;
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      resize: vertical;
+    }
+    button {
+      background: #424242;
+      color: #f5f5f5;
+      border: none;
+      padding: 10px 15px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover { background: #212121; }
+
+    /* Estilos para la ventana flotante */
+    .modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;              /* más ancha */
+  max-height: 80%;         /* ocupa hasta el 80% de la pantalla */
+  overflow-y: auto;        /* agrega scroll interno si el contenido es largo */
+  background: #fff;
+  border: 2px solid #424242;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  padding: 20px;
+}
+    .modal h2 { color: #212121; text-align: center; }
+    .modal p { text-align: left; }
+    .modal button {
+      background: #424242;
+      color: #fff;
+      margin-top: 15px;
+    }
+    .modal-close {
+      float: right;
+      cursor: pointer;
+      font-weight: bold;
+      color: #424242;
+    }
+  </style>
+</head>
+<body>
+  <!-- Menú madre-->
+  <nav>
+    <a href="https://whatsapp.com/channel/0029Vb6OSV517EmzRHBZ1V0Y">Noticias</a>
+    <a href="https://whatsapp.com/channel/0029VbBULrWGpLHSyj6Swo3f">FeriaBarrial</a>
+    <a href="https://chat.whatsapp.com/HlhWjXVpvnv4835xlzn4K7?mode=gi_t">Contacto</a>
+  </nav> 
+
+  <!-- Logo
+  <div class="logo">
+    <img src="/static/logo.png" alt="CONSORCIO VA1437">
+  </div> -->
+
+  <h1>VA 1437 INTRANET ON-OFF LINE</h1>
+
+  <!-- Caja editable para visitante -->
+  <div class="box">
+    <h2>Deja tu mensaje o comparti tu frase</h2>
+    <textarea placeholder="Escribi aqui tu mensaje o frase..."></textarea>
+    <button>Terminado</button>
+  </div>
+
+  <!-- Random de frases motivadoras -->
+  <div class="box">
+    <h2>Elegi tu Frase vitamina</h2>
+    <p id="fraseRandom"></p>
+    <button onclick="nuevaFrase()">Nueva frase</button>
+  </div>
+
+  <!-- Consejo tuyo -->
+  <div class="box">
+    <h2>Anuncios</h2>
+    <p><strong>Titulo:</strong> Expensas</p>
+    <p>Este mes se difundio la liquidacion de gastos. Mas info en VA1437 grupo de Whatsapp</p>
+  </div>
+
+  <!-- Espacio para nota -->
+  <div class="box">
+    <h2>MEMO NOTA</h2>
+    <p>Informar es una manera de ayudar. 
+      Recordar:
+      Expensas, liquidaciones, circulares, novedades, encuestas, reparaciones, refacciones, mantenimiento y reuniones se informan unicamente por el grupo de Whatsapp VA1437 de vecinos. Como siempre la informacion esta disponible, quien decida no participar del grupo de whatsapp, no puede alegar estar desinformado. Informo : El Consejo Consultivo del Consorcio VA1437.
+    </p>
+  </div>
+
+  <!-- Espacio para incrustar otro HTML 
+  <div class="box">
+    <h2>Contenido incrustado</h2>
+    <iframe src="/poesia" width="98%" height="200"></iframe>
+  </div> -->
+
+  <!-- Botón para abrir ventana flotante -->
+  <div class="box" style="text-align:center;">
+    <button onclick="abrirModal()">Kit de Emergencia</button>
+  </div>
+
+  <!-- Ventana flotante emergencia
+  
+   -->
+  
+  <!-- ventana flotante emergencia llamado directo -->
+    <div id="modalEmergencia" class="modal">
+  <span class="modal-close" onclick="cerrarModal()"></span>
+  <h2>KIT EMERGENCIA FIGITAL</h2>
+  <p><strong>Telefonos utiles:</strong></p>
+  <ul>
+    <li><a href="tel:100">LLAMAR BOMBERO: 100</a></li>
+    <li><a href="tel:911">LLAMAR POLICIA: 911</a></li>
+    <li><a href="tel:107">LLAMAR SAME: 107</a></li>
+    <li><a href="tel:+541155555555">CONSEJO CONSORCIO VA1437</a></li>
+  </ul>
+  <p><strong>Recomendaciones:</strong></p>
+  <p>LINTERNA /AGUA /BOTIQUIN /ABRIGO /CARAMELOS /DNI /LLAVES /RADIO /CELULAR /CARGADOR PORTATIL /MENSAJERIA OFFLINE</p>
+  <button onclick="window.location.href='https://briarproject.org/download-briar/'">
+    Descargar Mensajeria OffLine
+  </button>
+  <button onclick="cerrarModal()">Cerrar</button>
+   <div class="box" style="text-align:center;">
+  <button id="wifiBtn" onclick="toggleWifi()">Conectar WiFi Vecinal</button>
+      <!-- OFFLINE -->
+  <div class="box">
+    <h2>SERVICIO  OFFLINE</h2>
+    <p><strong>INTRANET OFFLINE</strong> Wifi vecinal solo se conectara en caso de corte de internet o inestabilidad del servicio web.</p>
+    <p>Tambien si existiera corte masivo de internet, se pone a disposicion este servicio OffLine de emergencia de wifi vecinal Offline para seguir comunicados. Cuenta un wifi con servidor Local dedicado propio como soporte. La disponibilidad depende del suministro electrico. En caso de corte de luz este servicio no se podra brindar hasta nuevo aviso. Podes descargar con tiempo la app BRIAR que es una mensajeria descentralizada similar a Whatsapp pero con la opcion de elegir conectarte incluso sin internet con otros usuarios.</p>
+  </div>
+  <!-- Botón de página web OFF LINE -->
+
+  <div class="box" style="text-align:center;">
+    <button onclick="window.location.href='http://192.168.204.196:5000'">OffLineWeb</button>
+  </div></div>
+</div>
+
+  <!-- Script para frases random y modal -->
+  <script>
+    const frases = [
+      "La union hace la fuerza.",
+      "Cada vecino es una luz en el barrio.",
+      "Compartir es crecer.",
+      "La comunidad es nuestro refugio.",
+  "El pasillo es nuestro hogar compartido",
+      "Un gesto amable cambia el dia."
+    ];
+
+    function nuevaFrase() {
+      const random = frases[Math.floor(Math.random() * frases.length)];
+      document.getElementById("fraseRandom").innerText = random;
+    }
+
+    document.addEventListener("DOMContentLoaded", nuevaFrase);
+
+    // Funciones para ventana flotante
+    function abrirModal() {
+      document.getElementById("modalEmergencia").style.display = "block";
+    }
+    function cerrarModal() {
+      document.getElementById("modalEmergencia").style.display = "none";
+    }
+  </script>
+<!-- 👇 Chatbox flotante de WhatsApp -->
+  <script type="text/javascript">
+    (function () {
+      var options = {
+        whatsapp: "https://chat.whatsapp.com/HlhWjXVpvnv4835xlzn4K7?mode=gi_t", // tu número con código de país
+        call_to_action: "Escribinos por WhatsApp", 
+        position: "right", // posición del botón (right o left)
+      };
+      var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+      var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+      s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+      var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    })();
+  </script>
+ 
+
+<script>
+  let conectado = false;
+
+  function toggleWifi() {
+    const btn = document.getElementById("wifiBtn");
+    if (conectado) {
+      conectado = false;
+      btn.innerText = "Desconectado WiFi Vecinal";
+      btn.style.background = "red";
+      alert("Desconectado del servidor local RadCorLumen activo sin internet. ");
+    } else {
+      conectado = true;
+      btn.innerText = "conectado a WiFi Vecinal";
+      btn.style.background = "green";
+      alert("OFFLINE: wifi:goyena1437 password:va1437 ");
+    }
+  }
+</script>
+ 
+  <div class="box" style="text-align:center; font-size:12px; color:#555;">
+  <p>Este proyecto es comunitario y no puede ser copiado ni redistribuido sin autorización expresa de la autora.</p>
+       <!-- See LICENSE for attribution rules. Cualquiera copia debe creditarse como "Basado en trabajo de Gabriela para Radiante Corazon Luminico" previo aviso por email al autor original anterior Radiante Corazon Luminico-->
+   <footer style="text-align:center; font-size:12px;">
+ Licencia MIT Copyright (c) 2026 Radiante Corazón Luminico, bajo derecho de autor. © - Proyecto VA1437 -
+  <br>
+</footer>     
+<a class="btn-accion" href="mailto:radcorlumenservidordedicado@gmail.com?subject=Consultar%20por%20Licencias%20&body=Hola%2C%20estoy%20interesado/a%20en%20 compartir%20codigo.%20Consulto%20creditos%20del%20trabajo%20y%20condiciones%20en%20el%20uso.%20mi nombre%20es...%20apellido...%20celular..." target="_blank">LICENSE</a>  
+  </div>
+</div>
+</body>
+</html>
